@@ -68,6 +68,7 @@ export class CreateReviewComponent implements OnInit {
 
     this.serverAPI.updateRequest("reviewlist", "create", reviewlist).subscribe(
       data => {
+        let veviewListId = data['message'].id;
           for (let i=0; i<this.selectedUsersList.length; i++){
             let review = {
               id: null,
@@ -75,7 +76,7 @@ export class CreateReviewComponent implements OnInit {
               comment: null,
               submitted: null,
               user_id: this.selectedUsersList[i].id,
-              reviewlist_id: data.message.id
+              reviewlist_id: veviewListId
             }
             this.serverAPI.updateRequest("review", "create", review).subscribe(
               data => {
