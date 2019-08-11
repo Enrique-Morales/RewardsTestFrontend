@@ -1,7 +1,8 @@
-export const environment = {
-  production: true
-};
-
+.hover-row:hover{
+    background-color: lightslategray;
+    color:white;
+    cursor: pointer;
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.

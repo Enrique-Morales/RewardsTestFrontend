@@ -1,0 +1,100 @@
+<div class="container-fluid">
+
+    <h2>Create New Review</h2>
+    <form class="top-margin-60">
+            <div class="form-group">
+              <label for="firstName">Title</label>
+              <input type="text" class="form-control" [(ngModel)]="title" name="firstName">
+            </div>
+            <div class="form-group">
+              <label for="firstName">Target</label>
+              <input type="text" class="form-control" [(ngModel)]="target.firstName + ' ' + target.lastName" name="target" readonly style="cursor: pointer" data-toggle="modal" data-target="#chooseTargetModal">
+            </div>
+            <div class="row">
+                <div class="col-8">Employee list</div>
+                <div class="col-4"><button data-toggle="modal" data-target="#addUserModal"><i class="fa fa-plus"></i></button></div>
+            </div>
+            <div class="row" *ngFor="let selected of selectedUsersList">
+                <div class="col-8">{{selected.firstName}}&nbsp;{{selected.lastName}}</div>
+                <div class="col-4"><button class="btn btn-danger" (click)="removeUser(selected)"><i class="fa fa-trash"></i></button></div>
+            </div>
+            <div class="row" *ngIf="selectedUsersList.length==0">
+                <div class="col-8">Empty</div>
+            </div>
+            <button class="btn btn-success" (click)="createReview()" [disabled]="checkData()">Create</button>
+            <button class="btn btn-primary margin-left" (click)="cancel()">Cancel</button>
+    </form>
+
+</div>
+
+<div class="modal fade" id="chooseTargetModal" tabindex="-1" role="dialog" aria-labelledby="chooseTargetModalLabel" aria-hidden="true" style="margin-top: 200px; overflow: visible">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="chooseTargetModalLabel">Choose Target</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                  <div class="col-8">
+                      Employee
+                  </div>
+                  <div class="col-4">
+                      Add
+                  </div>
+              </div>
+              
+            <div class="row" *ngFor="let user of usersList" style="margin-top: 15px">
+                    <div class="col-8">
+                    {{user.firstName}}&nbsp;{{user.lastName}}
+                    </div>
+                    <div class="col-4">
+                        <button (click)="target=user" data-dismiss="modal"><i class="fa fa-check"></i></button>
+                    </div>
+                </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+      
+
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true" style="margin-top: 200px; overflow: visible">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="addUserModalLabel">Choose Target</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                  <div class="col-8">
+                      Employee
+                  </div>
+                  <div class="col-4">
+                      Add
+                  </div>
+              </div>
+              
+            <div class="row" *ngFor="let user of filteredUsersList" style="margin-top: 15px">
+                    <div class="col-8">
+                    {{user.firstName}}&nbsp;{{user.lastName}}
+                    </div>
+                    <div class="col-4">
+                        <button (click)="addUser(user)" data-dismiss="modal"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

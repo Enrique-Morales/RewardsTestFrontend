@@ -1,0 +1,23 @@
+<a [routerLink]="['/']">
+  <h1>Review App</h1>
+</a>
+
+<a [routerLink]="['employees']" *ngIf="sessionService.isAdmin()">
+  <h3>Employees</h3>
+</a>
+
+<a [routerLink]="['adminreviews']" *ngIf="sessionService.isAdmin()">
+  <h3>Reviews</h3>
+</a>
+
+<a [routerLink]="['myreviews', sessionService.getUser().id]" *ngIf="sessionService.isEmployee()">
+  <h3>My Reviews</h3>
+</a>
+
+<a (click)="logout()" *ngIf="sessionService.getUser()" class="button fancy-button">Logout</a>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

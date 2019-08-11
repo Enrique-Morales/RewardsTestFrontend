@@ -1,0 +1,28 @@
+<div class="container-fluid" *ngIf="review && !submitted">
+
+    <h2>Submit Review</h2><br>
+    <h3>{{review.reviewlist_obj.title}}</h3>
+
+    <form class="top-margin-60">
+            <div class="form-group">
+              <label for="rating">Rating</label>
+              <select class="form-control" id="rating" name="rating" [(ngModel)]="review.rating">
+                <option *ngFor="let value of ratingList">{{value}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="firstName">Comment</label>
+              <textarea cols="100" rows="20" class="form-control" [(ngModel)]="review.comment" name="comment"></textarea>
+            </div>
+            <button class="btn btn-success" (click)="submit()" [disabled]="checkData()">Create</button>
+          </form>
+
+</div>
+
+
+<div *ngIf="submitted" class="container-fluid">
+        <div class="alert alert-success">
+          <strong>Success!</strong> Your feedback has been sent.
+        </div>
+        <a type="button" class="btn btn-success" [routerLink]="['']">Back</a>
+    </div>

@@ -1,0 +1,48 @@
+<div class="container-fluid">
+
+<h2> Employees</h2>
+
+<div class="table-responsive tablecenter" >
+    <table class="table table-striped table-sm customTable table-hover" style="margin-top: 1%;">
+        <tr class="tableheader">            
+            <th style="min-width: 95px;"> 
+                <div class="headertitle">
+                <div>ID</div>
+                </div>
+                </th>     
+
+            <th style="min-width: 110px;">
+                <div class="headertitle">
+                    <div>Name</div>
+                </div>
+            </th>
+            <th>
+                <div class="headertitle">
+                    <div>Email</div>
+                </div>
+            </th>
+            <th>
+                <div class="headertitle">
+                    <div>Phone</div>
+                </div>
+            </th>
+            <th>
+                <div class="headertitle">
+                    <div>User Type</div>
+                </div>
+            </th>
+        </tr>
+        
+
+
+        <tr *ngFor="let employee of employeeList" class="hover-row" (click)="seeEmployee(employee.id)">
+            <td>{{employee.id}}</td>
+            <td>{{employee.firstName}}&nbsp;{{employee.lastName}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.phone}}</td>
+            <td>{{employee.typeuser_obj.desc}}</td>                                  
+        </tr>
+    </table>
+</div>
+<button class="btn btn-primary" (click)="createEmployee()">Create</button>
+</div>

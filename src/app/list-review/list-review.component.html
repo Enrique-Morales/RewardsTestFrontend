@@ -1,0 +1,29 @@
+<div class="container-fluid" *ngIf="reviews">
+
+        <h2 class="top-margin-60">Reviews</h2>    
+        <div class="row reviewsHeader">
+            <div class="col">
+                Employee
+            </div>
+            <div class="col">
+                Title
+            </div>
+        </div>
+        
+        <div class="row" *ngFor="let review of reviews">
+            <div class="col-12 row hover-row" data-toggle="collapse" [attr.data-target]="'#' + review.id">
+                <div class="col">
+                    {{review.user_obj.firstName}}&nbsp;{{review.user_obj.lastName}}
+                </div>
+                <div class="col">
+                    {{review.reviewlist_obj.title}}
+                </div>
+            </div>
+            <div class="col-12 row collapse" [id]="review.id">
+                <div class="col-12 row">
+                    {{review.comment}}
+                </div>
+            </div>
+        </div>
+
+</div>

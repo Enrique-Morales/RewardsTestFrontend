@@ -1,0 +1,22 @@
+.container-fluid{
+    min-width: 1300px;
+}
+
+.reviewsHeader{
+    padding: 10px;
+    border-bottom: 2px solid blue;
+}
+
+.collapse.in{
+    display:flex;
+}
+
+.hover-row:hover{
+    background-color: lightslategray;
+    cursor: pointer;
+    color: white;
+}
+
+.hover-row{
+    padding: 10px;
+}

@@ -1,0 +1,28 @@
+.customTable{
+    min-width: 900px;
+}
+
+
+.tableheader {
+
+    height: 45px;
+
+}
+
+.hover-row:hover{
+    background-color: lightslategray;
+    color:white;
+    cursor: pointer;
+}
+
+.customTable tr td, .customTable tr th {
+     vertical-align:middle;
+     height: 40px;
+     padding-left: 15px;
+}
+
+.tableheader th {
+    background-color: #124E78;
+    color: white !important;
+
+}
